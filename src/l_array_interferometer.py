@@ -22,12 +22,12 @@
 #       So the linear regression tends to fit two DOAs +-180 degrees apart equally well.
 #
 
-from numpy import array, arange, iinfo, int32
-from numpy.linalg import inv, norm
-from math import pi, cos, sin, ceil
 from cmath import phase, rect
 from functools import reduce
+from math import pi, cos, sin, ceil
 import matplotlib.pyplot as plt
+from numpy import array, arange, iinfo, int32
+from numpy.linalg import inv, norm
 
 def create_bases_mat(base_sizes):
     num_bases = len(base_sizes)
@@ -183,7 +183,7 @@ y = x
 g = []
 for simulated_azimuth_deg in x:
     az = do_df_algo(frequency_Hz, simulated_azimuth_deg, base_sizes)
-    if(simulated_azimuth_deg != az):
+    if simulated_azimuth_deg != az:
         print(f"expected: {simulated_azimuth_deg}, got: {az}")
     g.append(az)
 
